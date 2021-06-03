@@ -1,27 +1,27 @@
-import math
+import math   
 import unittest
 import random
 
+
 def wallis(n):
-    half_pi=4/3
-    for i in range(2,n+1):
-        half_pi*=(4*(i**2))/((4*(i**2))-1)
-    return half_pi*2
+    dummy=1
+    for i in range (1,n+1):
+      dummy*= ((4)(i2))/(((4)(i**2))-1)
+    return dummy*2
+    
+         
 def monte_carlo(n):
-    INTERVAL= 1000
+  count = 0
+  for i in range(0, n):
+    x = random.random()
+    y = random.random()
+    if ((x*2 + y2)*0.5) <= 1 :
+      count+= 1
   
-    circle_points= 0
-    square_points= 0
-    for i in range(INTERVAL**2):
-        rand_x= random.uniform(-1, 1)
-        rand_y= random.uniform(-1, 1)
-        origin_dist= rand_x**2 + rand_y**2
-        if origin_dist<= 1:
-            circle_points+= 1
-      
-        square_points+= 1
-        pi = 4* circle_points/ square_points
-    return pi
+  return 4*(count)/n
+
+
+
 class TestWallis(unittest.TestCase):
     def test_low_iters(self):
         for i in range(0, 5):
@@ -49,5 +49,5 @@ class TestMC(unittest.TestCase):
             self.assertTrue(abs(pi - math.pi) < 0.4, msg=f"Estimate with even {i} iterations is {pi} which is not accurate enough.\n")
         
     
-if __name__ == "__main__":
-    unittest.main()
+if _name_ == "_main_":
+    unittest.main(
